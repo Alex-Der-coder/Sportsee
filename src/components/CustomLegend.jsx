@@ -3,7 +3,7 @@ import React from 'react';
  const CustomLegend = () => {
   
       return ( 
-        <div className='flex w-[55%] absolute top-[26%] ' >
+        <div className='flex w-[55%] absolute top-[27%] ' >
             <div className='w-[51%] flex flex-row justify-between'>
             <h2 className='pl-[6%]'>Activité quotidienne</h2>
             </div>

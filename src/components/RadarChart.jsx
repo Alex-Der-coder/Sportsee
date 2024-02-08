@@ -5,14 +5,26 @@ export default class Example extends PureComponent {
 
   render() {
   
-    const {  datauserone, kind } = this.props;
+    const {  datauserone} = this.props;
 
-    const updatedDataOne = datauserone.data.data.map(item => ({
-      ...item,
-      kind: kind[item.kind]
+    console.log(datauserone.data.data); 
+
+    const mapping = {
+      1: "Cardio",
+      2: "Energie",
+      3: "Endurance",
+      4: "Force",
+      5: "Vitesse",
+      6: "Intensité"
+
+    };
+
+    const updatedData = datauserone.data.data.map(item => ({
+      value: item.value,
+      kind: mapping[item.kind] || item.kind
     }));
-
-    const data = updatedDataOne.map(item => ({
+  
+    const data = updatedData.map(item => ({
       subject: item.kind,
       A: item.value,
       fullMark: 150,
