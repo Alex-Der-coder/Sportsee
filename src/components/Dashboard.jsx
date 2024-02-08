@@ -7,11 +7,17 @@ import TinyLineChart from './TinyLineChart'
 import CountBody from './CountBody'
 import CustomLegend from './CustomLegend';
 import { useParams } from 'react-router-dom';
+import { getUserData }
+ from '../__Mock__/fetchmockdata';  // Assurez-vous d'ajuster le chemin d'accès en fonction de votre structure de fichiers
+
+ 
 
 const Dashboard = () => {
-  const { userId } = useParams();
+  const { userId  } = useParams();
   const [userData, setUserData] = useState(null);
-  
+  console.log(userId);
+  const userIdMock = userId;
+
 
   useEffect(() => {
     const fetchDataForUser = async () => {
@@ -44,6 +50,9 @@ const Dashboard = () => {
         };
 
         setUserData(combinedData);
+        console.log(combinedData);
+        console.log(getUserData(userId));
+         
 
       } catch (error) {
         console.error('Error fetching data:', error);
