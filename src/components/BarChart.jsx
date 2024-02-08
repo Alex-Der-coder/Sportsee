@@ -1,15 +1,12 @@
 
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-
+import { formatDayTickExportable } from '../utils/Fonction.tsx'
 
 
 export default class Example extends PureComponent {
     
-    formatDayTick = (tickItem) => {
-        return tickItem.split('-')[2];
-      };
-
+ 
   render() {
     const { data} = this.props;
 
@@ -30,7 +27,7 @@ export default class Example extends PureComponent {
           }} 
         >
           <CartesianGrid vertical={false}  strokeDasharray="3" />
-          <XAxis dataKey="day"   name="Poids (kg)"  tickFormatter={this.formatDayTick}/>
+          <XAxis dataKey="day"   name="Poids (kg)"   tickFormatter={formatDayTickExportable}/>
           <YAxis yAxisId="kilogram" type="number"   domain={[69 , 71]} tickCount="3"  orientation="right" radius={[50, 50, 0, 0]}  />
           <YAxis yAxisId="calories"  type="number"  domain={[69, 'auto']}  orientation="right" hide={true}  radius={[50, 50, 0, 0]}/>
           <Tooltip  />
