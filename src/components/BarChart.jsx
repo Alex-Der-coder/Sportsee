@@ -6,11 +6,8 @@ import { formatDayTickExportable } from '../utils/Fonction.tsx'
 
 export default class Example extends PureComponent {
     
- 
   render() {
     const { data} = this.props;
-
-  
 
     return (
       
