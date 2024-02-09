@@ -14,15 +14,13 @@ const Dashboard = () => {
   const { userId  } = useParams();
   const [userData, setUserData] = useState(null);
 
-  
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userSpecificData = await fetchDataForUser(userId);
         const combinedData = { ...userSpecificData, ...getUserData(userId) };
         setUserData(combinedData);
-        console.log(combinedData.performance);
+        console.log(combinedData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }

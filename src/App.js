@@ -4,23 +4,31 @@ import Weight from './assets/Strong.svg';
 import Swim from './assets/Swim.svg';
 import Zen from './assets/Zen.svg';
 import Dashboard from './components/Dashboard';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NotFound from './components/NotFound.jsx'
+import { BrowserRouter as Router, Route, Routes , Navigate } from 'react-router-dom';
 import './App.css';
 
 function App() {
+  
   return (
     <div className="relative h-screen flex items-center justify-center">
       <Router>
         <Routes>
-          <Route path="/user/:userId"  element={<Dashboard />}/>
+          <Route path="/user/:userId" element={<Dashboard />} />
+          <Route path="/user/*" element={<Navigate to="/user/404" />} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
-     </Router>
+      </Router>
       <div className="absolute h-1 w-full h-14 bg-black top-0 flex justify-between ">
         <div className="flex justify-between "><img src={logo} alt="Logo" className="z-1 h-9 top-2 pl-2 max-w-full absolute" style={{ zIndex: 1 }}/></div>
           <div className="p-2.5 bg-black font-bold text-white flex flex-row max-w-90 justify-around pl-16 mt-1 w-[70rem] ">
+         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" className="text-white">Accueil</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" className="text-white">Profil</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" className="text-white">Réglage</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" className="text-white">Communauté</a>
           </div>
         </div>

@@ -1,6 +1,4 @@
-// dataTransform.js
 const transformData = (datauserone) => {
-    console.log(datauserone.data);
   
     const mapping = {
       1: "Cardio",

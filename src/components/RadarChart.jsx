@@ -7,7 +7,7 @@ export default class Example extends PureComponent {
   
     const {  datauserone} = this.props;
     const data = transformData(datauserone);
-    console.log(datauserone.data); 
+  
 
     return (
       <ResponsiveContainer height= "76%" className="bg-slate-950 "  minHeight="225px" width="88%" >
