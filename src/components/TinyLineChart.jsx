@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import CustomDayLegend from './CustomDayLegend'
 import { LineChart, Line , ResponsiveContainer } from 'recharts';
 import  CostumTitleLinechart from './CostumTitleLinechart'
+import formatData from '../utils/formatData.tsx'
+
 
 const data = [
   {
@@ -48,23 +50,13 @@ const data = [
   },
 ];
 
-
-
-
 export default class Example extends PureComponent {
 
   render() {
     const sessions = this.props
     const sessionLengths = sessions.sessions.map(session => session.sessionLength);
 
-const newData = data.map((item, index) => {
-  // Assuming day values in sessionLengths start from 1
-  const sessionLengthValue = sessionLengths[index];
-
-  // Replace pv with sessionLength
-  return { ...item, pv: sessionLengthValue };
-});
-
+    const newData = formatData(data, sessionLengths);
 
     return (
       <ResponsiveContainer className="order-1" width="100%" height="100%" minHeight={228} minWidth={250}>
